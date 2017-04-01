@@ -9,9 +9,6 @@ Rx.Observable
     );
   })
   .map(results => {
-    /*var movies = results[0].data;
-    var tv = results[1].data;
-    return movies.concat(tv);*/
     return results.data;
   })
   .subscribe(results => {
