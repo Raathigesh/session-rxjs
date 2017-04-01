@@ -15,12 +15,12 @@ document.getElementById("search").addEventListener("keyup", function(event) {
 });
 
 function renderResults(results) {
-  var searchResultsElement = document.getElementById("searchResults");
+  const searchResultsElement = document.getElementById("searchResults");
   searchResultsElement.innerHTML = "";
 
-  for (var i = 0; i < results.length; i++) {
-    var el = document.createElement("li");
-    el.innerHTML = results[i];
+  for (let item of results) {
+    const el = document.createElement("li");
+    el.innerHTML = item;
     searchResultsElement.appendChild(el);
   }
 }
