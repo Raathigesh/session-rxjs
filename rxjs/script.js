@@ -4,11 +4,9 @@ Rx.Observable
     return event.target.value;
   })
   .switchMap(searchQuery => {
-    /*return axios.all([
-      axios.get("http://localhost:3334/movies/" + searchQuery),
-      axios.get("http://localhost:3334/tv/" + searchQuery)
-    ]);*/
-    return axios.get("http://localhost:3334/movies/" + searchQuery);
+    return Rx.Observable.fromPromise(
+      axios.get("http://localhost:3334/movies/" + searchQuery)
+    );
   })
   .map(results => {
     /*var movies = results[0].data;
