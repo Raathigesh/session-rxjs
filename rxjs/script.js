@@ -1,13 +1,12 @@
 Rx.Observable
   .fromEvent(document.getElementById("search"), "keyup")
-  .map(event => {
+  .switchMap(event => {
     return Rx.Observable.fromPromise(
-      axios.get("http://localhost:3334/movies/" + event.target.value)
+      $.get("http://localhost:3334/movies/" + event.target.value)
     );
   })
-  .switch()
   .subscribe(results => {
-    renderResults(results.data);
+    renderResults(results);
   });
 
 function renderResults(results) {
